@@ -1,24 +1,54 @@
-<!DOCTYPE html>
-
-<html>
-
 <head>
-    <title>About</title>
-    <link rel="icon" href="/img/weather.png">
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-
-<body>
-    <div class="main-content">
-        {{>header}}
-        <img class="portrait" src="/img/me.png">
-        <img class="portrait" src="/img/afsar.png">
-<img class="portrait" src="/img/afsar1.png">
-<img class="portrait" src="/img/afsar2.png">
-<img class="portrait" src="/img/afsar3.png">
-    </div>
     
-    {{>footer}}
-</body>
+    <link rel="stylesheet" href="/css/style1.css">
+</head>
+{{>header}}
 
-</html>
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>This is weather website created by Afsar</p>
+  <p>This webiste will give you the current weather</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="/img/team1.jpg" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2>Reshma Shaikh</h2>
+        <p class="title">Tester</p>
+        <p>Testing this Software</p>
+        <p>reshmashaikh87@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/img/team2.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Faizan Shaikh</h2>
+        <p class="title">Supporter</p>
+        <p>He is an electrical engineer who support me to create this website.</p>
+        <p>faizanshaikh87@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/img/team3.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>Afsar Shaikh</h2>
+        <p class="title">Designer</p>
+        <p>He is software developer in node js</p>
+        <p>afsarshaikh87@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+   {{>footer}}
+</div>
