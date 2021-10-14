@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
   </head>
+  
   <body>
     <div class="container">
       <div class="wrapper">
         <div class="title"><span>Login Form</span></div>
-        <form action="#">
+        <form id="login">
           <div class="row">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Email or Phone" required>
+            <input id="username" type="text" placeholder="Email or Phone" required>
           </div>
           <div class="row">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" required>
+            <input type="password" id="password" placeholder="Password" required>
           </div>
           <div class="pass"><a href="#">Forgot password?</a></div>
           <div class="row button">
@@ -29,6 +30,36 @@
         </form>
       </div>
     </div>
+    <script>
+			const form = document.getElementById('login')
+			form.addEventListener('submit', login)
+
+			async function login(event) {
+				event.preventDefault()
+				const username = document.getElementById('username').value
+				const password = document.getElementById('password').value
+
+				const result = await fetch('/api/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					console.log('Got the token: ', result.data)
+					localStorage.setItem('token', result.data)
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+			}
+		</script>
 
   </body>
 </html>
